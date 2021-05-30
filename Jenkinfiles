@@ -22,7 +22,7 @@ pipeline {
         
     
         stage('Codereview') {
-        agent {'linux_slave'}
+        agent{'linux_slave'}
             steps {
               
                 sh 'mvn pmd:pmd'
@@ -57,7 +57,7 @@ pipeline {
             }
         
         stage('Package') {
-        agent {'linux_slave'}
+        agent{'linux_slave'}
             steps {
               
 
