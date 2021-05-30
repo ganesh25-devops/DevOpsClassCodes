@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     tools {
 
@@ -9,6 +9,7 @@ pipeline {
 
     stages {
         stage('Compile') {
+        agent any
             steps {
               
                 sh 'mvn compile'
@@ -21,6 +22,7 @@ pipeline {
         
     
         stage('Codereview') {
+        agent label {'linux_slave'}
             steps {
               
                 sh 'mvn pmd:pmd'
@@ -31,6 +33,7 @@ pipeline {
             }
          
         stage('UnitTest') {
+        agent any
             steps {
                
                 sh 'mvn test'
@@ -41,6 +44,7 @@ pipeline {
             }
         
         stage('MetricCheck') {
+        agent none
             steps {
                
                
@@ -53,6 +57,7 @@ pipeline {
             }
         
         stage('Package') {
+        agent label {'linux_slave'}
             steps {
               
 
