@@ -56,7 +56,7 @@ pipeline {
             }
 post { 
         always { 
-            cobertura coberturaReportFile: 'target/site/cobertura/coverge.xml'
+            cobertura coberturaReportFile: 'target/site/cobertura/coverage.xml'
         }
             
             }
